@@ -17,7 +17,7 @@ export class AppComponent{
   
  
   onClickMe(): void {
-   
+    
       this.showVar = !this.showVar;  
       this.resultService.getPairs(this.intNum,this.addNum);
     }

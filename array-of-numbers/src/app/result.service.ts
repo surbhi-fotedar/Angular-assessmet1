@@ -14,7 +14,7 @@ export class ResultService {
 
   constructor() { }
 
-  getPairs(intNum: number[], addnum: number) {
+  getPairs(intNum: number[], addnum: number): void {
 
     this.strNum = intNum.toString().split(',');   //converting array of numbers to array of string
     for(let i: number = 0; i < this.strNum.length; i++) {
