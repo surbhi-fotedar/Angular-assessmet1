@@ -1,12 +1,29 @@
 <div class="container">
   <div class="form-group">
     <label>Enter Numbers</label>
-    <input type="text" class="form-control" placeholder="Enter Numbers">
+    <input type="text" class="form-control" placeholder="Enter Numbers" [(ngModel)]="intnum">
   </div>
   <div class="form-group">
     <label>Enter Specified Sum</label>
-    <input type="text" class="form-control" placeholder="Enter Specified Sum">
+    <input type="text" class="form-control" placeholder="Enter Specified Sum" [(ngModel)]="add">
   </div>
 
-  <button type="submit" class="btn btn-primary">Find Pair</button>
+  <button class="btn btn-primary" (click)="onClickMe()">Find Pair</button>
+  <p>{{firstvalueSecondvalue}}</p>
+  <p></p>
 </div>
+
+<!-- Enter a value <input type="text" [(ngModel)]="str">
+<p>
+  <button type="submit" (click)="changeLabelName($event)" id="bt">
+        Click Me
+    </button>
+</p>
+
+<ng-container>
+  <p>
+
+    {{name}}
+
+  </p>
+</ng-container> -->
