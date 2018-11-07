@@ -1,35 +1,15 @@
-<div class="container">
+<div class="container mt-5">
   <div class="form-group">
     <label>Enter Numbers</label>
-    <input type="text" class="form-control" placeholder="Enter Numbers" [(ngModel)]="strnum">
+    <input type="text" class="form-control" placeholder="Enter Numbers" [(ngModel)]="intNum">
   </div>
   <div class="form-group">
     <label>Enter Specified Sum</label>
-    <input type="text" class="form-control" placeholder="Enter Specified Sum" [(ngModel)]="add">
+    <input type="text" class="form-control" placeholder="Enter Specified Sum" [(ngModel)]="addNum">
   </div>
 
   <button class="btn btn-primary" (click)="onClickMe()">Find Pair</button>
   <div>
-    <h3>Result:</h3>
-    <p>Pair of Numbers= {{firstvalue}}</p>
-    <p>{{Secondvalue}}</p>
-    <p>Indexes = {{firstIndex}} and {{secondIndex}}</p>
+    <app-result-section [showResult]="showVar"></app-result-section>
   </div>
-
-
 </div>
-
-<!-- Enter a value <input type="text" [(ngModel)]="str">
-<p>
-  <button type="submit" (click)="changeLabelName($event)" id="bt">
-        Click Me
-    </button>
-</p>
-
-<ng-container>
-  <p>
-
-    {{name}}
-
-  </p>
-</ng-container> -->

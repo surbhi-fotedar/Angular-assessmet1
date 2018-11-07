@@ -1,0 +1,24 @@
+<div *ngIf="showResult" class="mt-5">
+  <h3>Result:</h3>
+
+  <div *ngIf="resultService.resultPairs.length; else notFound">
+    <div class="row">
+      <div class="col-sm-3">
+        <div *ngFor='let pair of resultService.resultPairs'>
+          <p> Pair of Numbers= {{pair}}</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div *ngFor='let result of resultService.resultIndexes'>
+          <p>Indexes of Numbers= {{result}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <ng-template #notFound>
+    <h2>{{errorMessage|uppercase}}</h2>
+  </ng-template>
+
+
+</div>
