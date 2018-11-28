@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ResultService } from './result.service';
 
 
@@ -8,11 +8,11 @@ import { ResultService } from './result.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-
+  
   @ViewChild('pairInput') pairInput: ElementRef
   @ViewChild('indexInput') indexInput: ElementRef
   
-  intNum: number[];
+   intNum: number[];
    addNum: number;
    showVar: boolean = false;
    
