@@ -1,16 +1,31 @@
 <div class="container mt-5">
   <div class="form-group">
+    <div class="row">
+      <div class="col-sm-1">Generate</div>
+      <input type="text" class="form-control col-sm-2" placeholder="Enter Number" [(ngModel)]="genNum">
+      <div class="col-sm-4">random numbers</div>
+    </div>
+
+    <div class="row  mt-2">
+      <div class="col-sm-4 label">Each number should have a value between</div>
+      <input type="text" class="col-sm-2 float-sm-right mr-1 form-control" [(ngModel)]="minRange">
+      <p>and</p>
+      <input type="text" class="col-sm-2 ml-1 form-control" [(ngModel)]="maxRange">
+    </div>
+    <button class="btn btn-primary mt-2 mb-2" (click)="onGenerate()">Get Numbers</button>
+  </div>
+  <div class="form-group">
     <label>Enter Numbers</label>
-    <input type="text" class="form-control" placeholder="Enter Numbers" [(ngModel)]="intNum" #pairInput>
+    <input type="text" class="form-control" placeholder="Numbers" [(ngModel)]="intNum">
   </div>
 
   <div class="form-group">
     <label>Enter Specified Sum</label>
-    <input type="text" class="form-control" placeholder="Enter Specified Sum" [(ngModel)]="addNum" #indexInput>
+    <input type="text" class="form-control" placeholder="Enter Specified Sum" [(ngModel)]="addNum">
   </div>
 
   <button class="btn btn-primary" (click)="onClickMe()">Find Pair</button>
-  <div>
-    <app-result-section [showResult]="showVar"></app-result-section>
+  <div *ngIf="results?.length > 0">
+    <app-result-section [results]="results"></app-result-section>
   </div>
 </div>

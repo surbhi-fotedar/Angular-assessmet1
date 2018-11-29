@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ResultService } from '../result.service';
-
 @Component({
   selector: 'app-result-section',
   templateUrl: './result-section.component.html',
@@ -11,9 +9,9 @@ export class ResultSectionComponent implements OnInit { //to display the Result 
 
  
   errorMessage: string='No pair Found';
-  @Input() showResult: Boolean;
-  
-  constructor(public resultService: ResultService) {}
+  @Input('results') results: any[];
+
+  constructor() {}
 
   ngOnInit() {
     

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { ResultService } from './result.service';
 
 
@@ -9,30 +9,36 @@ import { ResultService } from './result.service';
 })
 export class AppComponent{
   
-  @ViewChild('pairInput') pairInput: ElementRef
-  @ViewChild('indexInput') indexInput: ElementRef
-  
    intNum: number[];
    addNum: number;
    showVar: boolean = false;
+   results: any[];
+   genNum: number;
+   minRange: number = 1;
+   maxRange: number = 100;
+   randNum: number[]=[];
    
   constructor(private resultService: ResultService) {}
-  
  
-  ngAfterViewInit(): void {
-    this.pairInput.nativeElement.value = '';
-    this.indexInput.nativeElement.value = '';
+  onGenerate(): void {
+    while(this.randNum.length < this.genNum){
+      let r = Math.floor(Math.random()*(this.maxRange-this.minRange+1)+this.minRange);
+      if(this.randNum.indexOf(r) === -1) {
+        this.randNum.push(r);
+      }
+  }
+  this.intNum = this.randNum;
   }
   onClickMe(): void {
-
-      this.showVar = !this.showVar;  
-      this.resultService.getPairs(this.intNum,this.addNum);
-      this.ngAfterViewInit();
-      
-    }
-    
   
+      this.showVar = true; 
+      this.results = this.resultService.getPairsOptimized(this.intNum,this.addNum);
+      this.setValue();    
+    }
 
-   
+    setValue(): void {
+      this.intNum = null;
+      this.addNum = null;
+    }   
 }
 
