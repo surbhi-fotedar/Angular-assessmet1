@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class ResultService {
 
   strNum: string[] = [];
-  resultPairs: any[] = [];
-  intRes: string[] = [];
+  resultPairs: any[];
+  intRes: string[]=[];
   constructor() { }
 
   // getPairs(intNum: number[], addnum: number) {
@@ -36,19 +36,23 @@ export class ResultService {
     this.intRes.length = this.strNum.length;
     this.resultPairs = [];
     for(let num in this.strNum) {
-      let target = addnum - Number(this.strNum[num]);
 
-      if(!this.intRes.includes(target.toString())) {
+      if(Number(this.strNum[num]) < addnum) {
+        let target = addnum - Number(this.strNum[num]);
 
-        this.intRes.push(this.strNum[num]);
-      }else {
-        this.resultPairs.push(
-          {
-            pair: '[' + this.strNum[num] + ', ' + target + ']',
-            indexes: '[' + num + ', ' + this.strNum.indexOf(target.toString()) +']'
-          }
-        );
-      }      
+        if(!this.intRes.includes(target.toString())) {
+  
+          this.intRes.push(this.strNum[num]);
+        }else {
+          this.resultPairs.push(
+            {
+              pair: '[' + this.strNum[num] + ', ' + target + ']',
+              indexes: '[' + num + ', ' + this.strNum.indexOf(target.toString()) +']'
+            }
+          );
+        }
+      }
+           
     }
     return this.resultPairs;
   }
